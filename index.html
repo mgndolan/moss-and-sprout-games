@@ -5,17 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moss & Sprout Games™ | Cozy Indie Game Studio</title>
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- SPA redirect resolver for GitHub Pages direct links -->
+  <script>
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
 </head>
 <body>
 
-  <!-- Persistent Header / Navbar -->
+  <!-- Persistent Header / Navbar with Mobile Menu -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="/" data-link class="brand-link">
         <img src="images/moss-and-sprout-mascot.png" alt="Moss & Sprout Games Mascot" class="brand-logo" />
         <span class="brand-name">Moss & Sprout Games™</span>
       </a>
-      <ul class="nav-links">
+
+      <!-- Mobile Hamburger Button -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="navLinks">
         <li><a href="/" data-link class="active">Home</a></li>
         <li><a href="/games" data-link>Games</a></li>
         <li><a href="/about" data-link>About</a></li>
@@ -25,7 +48,7 @@
 
   <!-- Dynamic Content Container -->
   <main id="app" class="container">
-    <div class="loading-state">Trying to catch sprout...</div>
+    <div class="loading-state">🌱<span class="bounce-text">Catching sprout...</span></div>
   </main>
 
   <!-- Persistent Footer -->
