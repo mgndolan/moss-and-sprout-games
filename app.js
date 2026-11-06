@@ -1,7 +1,7 @@
 const routes = {
-  "/": "pages/home.html",
-  "/games": "pages/games.html",
-  "/about": "pages/about.html"
+  "/": "/pages/home.html",
+  "/games": "/pages/games.html",
+  "/about": "/pages/about.html"
 };
 
 const appContainer = document.getElementById("app");
